@@ -1,0 +1,64 @@
+{
+    "name": "Assignableroles Add",
+    "permissions": "NONE",
+    "permissions2": "NONE",
+    "restriction": "1",
+    "_id": "UPpYO",
+    "actions": [
+      {
+        "role": "6",
+        "varName": "Role",
+        "info": "2",
+        "storage": "1",
+        "varName2": "Role Name",
+        "name": "Store Role Info"
+      },
+      {
+        "input": "+ ${tempVars(\"Role Name\")}",
+        "format": ".txt",
+        "filename": "assign_roles",
+        "filepath": "resources",
+        "filepath2": "",
+        "filetask": "2",
+        "input2": "",
+        "togglestatus": "no",
+        "name": "File Control"
+      },
+      {
+        "filePath": "resources/assign_roles.txt",
+        "info": "File Content",
+        "storage": "1",
+        "varName": "List Roles",
+        "name": "Store File Info"
+      },
+      {
+        "channel": "0",
+        "varName": "",
+        "message": "Add `${tempVars(\"Role Name\")}` to Assignable Roles\n\n**Current List**\n```diff\n${tempVars(\"List Roles\")}\n```",
+        "buttons": [],
+        "selectMenus": [],
+        "attachments": [],
+        "embeds": [],
+        "reply": true,
+        "ephemeral": false,
+        "tts": false,
+        "overwrite": false,
+        "dontSend": false,
+        "editMessage": "0",
+        "editMessageVarName": "",
+        "storage": "0",
+        "varName2": "",
+        "name": "Send Message"
+      }
+    ],
+    "comType": "4",
+    "parameters": [
+      {
+        "name": "Role",
+        "description": "",
+        "type": "ROLE",
+        "required": true,
+        "choices": null
+      }
+    ]
+  }

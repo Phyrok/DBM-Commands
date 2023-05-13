@@ -1,0 +1,236 @@
+{
+  "name": "Couting",
+  "permissions": "NONE",
+  "permissions2": "NONE",
+  "restriction": "1",
+  "_id": "nQAzj",
+  "actions": [
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "Channel ID",
+      "name": "Store Channel Info"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "Counting-Channel",
+      "comparison": "1",
+      "value": "tempVars(\"Channel ID\")",
+      "branch": {
+        "iftrue": "0",
+        "iffalse": "1"
+      },
+      "name": "Check Server Data"
+    },
+    {
+      "message": "0",
+      "varName": "",
+      "info": "3",
+      "storage": "1",
+      "varName2": "Author",
+      "name": "Store Message Info"
+    },
+    {
+      "member": "1",
+      "varName": "",
+      "info": "1",
+      "storage": "1",
+      "varName2": "Member ID",
+      "name": "Store Member Info"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "Counting-Author",
+      "defaultVal": "${tempVars(\"Member ID\")}",
+      "storage": "1",
+      "varName2": "Author Data",
+      "name": "Store Server Data"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "Counting-Author",
+      "comparison": "1",
+      "value": "tempVars(\"Member ID\")",
+      "branch": {
+        "iftrue": "4",
+        "iffalse": "4",
+        "iftrueVal": "No",
+        "iffalseVal": "Yes"
+      },
+      "name": "Check Server Data"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "anchorName": "No",
+      "name": "Action Anchor"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "reason": "",
+      "name": "Delete Message"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "You can't count twice",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [],
+      "reply": false,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "1",
+      "varName2": "Msg1",
+      "name": "Send Message"
+    },
+    {
+      "time": "10",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "Msg1",
+      "reason": "",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "anchorName": "Yes",
+      "name": "Action Anchor"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "Counting-Author",
+      "changeType": "0",
+      "value": "tempVars(\"Member ID\")",
+      "name": "Control Server Data"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "Counting-Value",
+      "changeType": "1",
+      "value": "1",
+      "name": "Control Server Data"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "Counting-Value",
+      "defaultVal": "0",
+      "storage": "1",
+      "varName2": "Number",
+      "name": "Store Server Data"
+    },
+    {
+      "message": "0",
+      "varName": "",
+      "info": "2",
+      "storage": "1",
+      "varName2": "Text",
+      "name": "Store Message Info"
+    },
+    {
+      "storage": "1",
+      "varName": "Text",
+      "comparison": "1",
+      "value": "tempVars(\"Number\")",
+      "branch": {
+        "iftrue": "4",
+        "iffalse": "4",
+        "iftrueVal": "Good",
+        "iffalseVal": "Wrong"
+      },
+      "name": "Check Variable"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "anchorName": "Wrong",
+      "name": "Action Anchor"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "emoji": "4",
+      "varName2": "🔴",
+      "varName3": "",
+      "name": "Add Reaction"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "dataName": "Counting-Value",
+      "changeType": "0",
+      "value": "0",
+      "name": "Control Server Data"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Counting reset",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "1",
+      "varName2": "Msg2",
+      "name": "Send Message"
+    },
+    {
+      "time": "10",
+      "measurement": "1",
+      "name": "Wait"
+    },
+    {
+      "storage": "1",
+      "varName": "Msg2",
+      "reason": "",
+      "name": "Delete Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "anchorName": "Good",
+      "name": "Action Anchor"
+    },
+    {
+      "storage": "0",
+      "varName": "",
+      "emoji": "4",
+      "varName2": "🟢",
+      "varName3": "",
+      "name": "Add Reaction"
+    }
+  ],
+  "comType": "3"
+}

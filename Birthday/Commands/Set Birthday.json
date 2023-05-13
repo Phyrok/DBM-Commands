@@ -1,0 +1,250 @@
+{
+    "name": "Set Birthday",
+    "permissions": "NONE",
+    "permissions2": "NONE",
+    "restriction": "1",
+    "_id": "viLon",
+    "actions": [
+      {
+        "behavior": "0",
+        "interpretation": "0",
+        "code": "function transformDateFormat(dateString) {\n  const [day, month, year] = dateString.split(\"-\"); // split the input string into day, month, and year\n  const formattedDate = day.padStart(2, \"0\")+\"-\"+month.padStart(2, \"0\"); // format the date as \"DD-MM-YYYY\"\n  return formattedDate;\n}\n\nActions.storeValue(transformDateFormat(slashParams(\"Day\")+\"-\"+slashParams(\"Month\")), 1, \"Date\", cache);",
+        "storage": "0",
+        "varName": "",
+        "name": "Run Script"
+      },
+      {
+        "behavior": "0",
+        "interpretation": "0",
+        "code": "function isDateFormatValid(dateString) {\n  const dateRegex = /^\\d{2}-\\d{2}$/; // Regular expression to match \"DD-MM-YYYY\" format\n  return dateRegex.test(dateString);\n}\n\nActions.storeValue(isDateFormatValid(tempVars(\"Date\")), 1, \"T/F\", cache);",
+        "storage": "0",
+        "varName": "",
+        "name": "Run Script"
+      },
+      {
+        "storage": "1",
+        "varName": "T/F",
+        "comparison": "1",
+        "value": "true",
+        "branch": {
+          "iftrue": "4",
+          "iffalse": "4",
+          "iftrueVal": "Correct",
+          "iffalseVal": "Incorrect"
+        },
+        "name": "Check Variable"
+      },
+      {
+        "name": "End Action Sequence"
+      },
+      {
+        "anchorName": "Incorrect",
+        "name": "Action Anchor"
+      },
+      {
+        "channel": "0",
+        "varName": "",
+        "message": "That Date is incorrect, please try again!",
+        "buttons": [],
+        "selectMenus": [],
+        "attachments": [],
+        "embeds": [],
+        "reply": true,
+        "ephemeral": false,
+        "tts": false,
+        "overwrite": false,
+        "dontSend": false,
+        "editMessage": "0",
+        "editMessageVarName": "",
+        "storage": "1",
+        "varName2": "msg1",
+        "name": "Send Message"
+      },
+      {
+        "time": "10",
+        "measurement": "1",
+        "name": "Wait"
+      },
+      {
+        "storage": "1",
+        "varName": "msg1",
+        "reason": "",
+        "name": "Delete Message"
+      },
+      {
+        "name": "End Action Sequence"
+      },
+      {
+        "anchorName": "Correct",
+        "name": "Action Anchor"
+      },
+      {
+        "channel": "0",
+        "varName": "",
+        "message": "",
+        "buttons": [
+          {
+            "name": "Yes",
+            "type": "SUCCESS",
+            "id": "msg-button-1e8a503",
+            "row": "",
+            "url": "",
+            "emoji": "",
+            "mode": "PERSONAL",
+            "time": "",
+            "actions": [
+              {
+                "member": "1",
+                "varName": "",
+                "info": "1",
+                "storage": "1",
+                "varName2": "ID",
+                "name": "Store Member Info"
+              },
+              {
+                "input": "${tempVars(\"Date\")}",
+                "format": ".log",
+                "filename": "${tempVars(\"ID\")}",
+                "filepath": "resources/birthday",
+                "filepath2": "",
+                "filetask": "1",
+                "input2": "",
+                "togglestatus": "no",
+                "name": "File Control"
+              },
+              {
+                "channel": "0",
+                "varName": "",
+                "message": "Your Birthday has been added!",
+                "buttons": [],
+                "selectMenus": [],
+                "attachments": [],
+                "embeds": [],
+                "reply": false,
+                "ephemeral": false,
+                "tts": false,
+                "overwrite": false,
+                "dontSend": false,
+                "editMessage": "0",
+                "editMessageVarName": "",
+                "storage": "1",
+                "varName2": "msg2",
+                "name": "Send Message"
+              },
+              {
+                "storage": "1",
+                "varName": "msg1",
+                "reason": "",
+                "name": "Delete Message"
+              },
+              {
+                "time": "10",
+                "measurement": "1",
+                "name": "Wait"
+              },
+              {
+                "storage": "1",
+                "varName": "msg2",
+                "reason": "",
+                "name": "Delete Message"
+              }
+            ]
+          },
+          {
+            "name": "No",
+            "type": "DANGER",
+            "id": "msg-button-da9f3cf",
+            "row": "",
+            "url": "",
+            "emoji": "",
+            "mode": "PERSONAL",
+            "time": "",
+            "actions": [
+              {
+                "channel": "0",
+                "varName": "",
+                "message": "Please try again",
+                "buttons": [],
+                "selectMenus": [],
+                "attachments": [],
+                "embeds": [],
+                "reply": false,
+                "ephemeral": false,
+                "tts": false,
+                "overwrite": false,
+                "dontSend": false,
+                "editMessage": "0",
+                "editMessageVarName": "",
+                "storage": "1",
+                "varName2": "msg2",
+                "name": "Send Message"
+              },
+              {
+                "storage": "1",
+                "varName": "msg1",
+                "reason": "",
+                "name": "Delete Message"
+              },
+              {
+                "time": "10",
+                "measurement": "1",
+                "name": "Wait"
+              },
+              {
+                "storage": "1",
+                "varName": "msg2",
+                "reason": "",
+                "name": "Delete Message"
+              }
+            ]
+          }
+        ],
+        "selectMenus": [],
+        "attachments": [],
+        "embeds": [
+          {
+            "title": "Is this correct?",
+            "url": "",
+            "color": "",
+            "timestamp": "false",
+            "imageUrl": "",
+            "thumbUrl": "",
+            "description": "```\nDD-MM\n${tempVars(\"Date\")}\n```",
+            "fields": [],
+            "author": "",
+            "authorUrl": "",
+            "authorIcon": "",
+            "footerText": "",
+            "footerIconUrl": ""
+          }
+        ],
+        "reply": true,
+        "ephemeral": false,
+        "tts": false,
+        "overwrite": false,
+        "dontSend": false,
+        "editMessage": "0",
+        "editMessageVarName": "",
+        "storage": "1",
+        "varName2": "msg1",
+        "name": "Send Message"
+      }
+    ],
+    "comType": "4",
+    "parameters": [
+      {
+        "name": "Day",
+        "description": "",
+        "type": "INTEGER",
+        "required": true,
+        "choices": null
+      },
+      {
+        "name": "Month",
+        "description": "",
+        "type": "INTEGER",
+        "required": true,
+        "choices": null
+      }
+    ]
+  }

@@ -1,0 +1,266 @@
+{
+    "name": "Unassignrole",
+    "permissions": "MANAGE_ROLES",
+    "permissions2": "NONE",
+    "restriction": "1",
+    "_id": "rXuuL",
+    "actions": [
+      {
+        "member": "1",
+        "varName": "",
+        "role": "100",
+        "varName2": "MSRP | High Staff Team",
+        "branch": {
+          "iftrue": "2",
+          "iffalse": "0",
+          "iftrueVal": "4"
+        },
+        "name": "Check If Member has Role"
+      },
+      {
+        "channel": "0",
+        "varName": "",
+        "message": "You do not have permissions to use this command!",
+        "buttons": [],
+        "selectMenus": [],
+        "attachments": [],
+        "embeds": [],
+        "reply": true,
+        "ephemeral": true,
+        "tts": false,
+        "overwrite": false,
+        "dontSend": false,
+        "editMessage": "0",
+        "editMessageVarName": "",
+        "storage": "0",
+        "varName2": "",
+        "name": "Send Message"
+      },
+      {
+        "name": "End Action Sequence"
+      },
+      {
+        "filePath": "resources/assign_roles.txt",
+        "info": "File Content",
+        "storage": "1",
+        "varName": "Roles List",
+        "name": "Store File Info"
+      },
+      {
+        "role": "6",
+        "varName": "Role",
+        "info": "2",
+        "storage": "1",
+        "varName2": "Role Name",
+        "name": "Store Role Info"
+      },
+      {
+        "storage": "1",
+        "varName": "Roles List",
+        "comparison": "5",
+        "value": "tempVars(\"Role Name\")",
+        "branch": {
+          "iftrue": "0",
+          "iffalse": "4",
+          "iffalseVal": "Not on List"
+        },
+        "name": "Check Variable"
+      },
+      {
+        "member": "5",
+        "varName": "User",
+        "role": "6",
+        "varName2": "Role",
+        "branch": {
+          "iftrue": "99",
+          "iffalse": "99",
+          "iftrueActions": [
+            {
+              "member": "1",
+              "varName": "",
+              "info": "3",
+              "storage": "1",
+              "varName2": "displayname",
+              "name": "Store Member Info"
+            },
+            {
+              "member": "1",
+              "varName": "",
+              "info": "16",
+              "storage": "1",
+              "varName2": "avatar",
+              "name": "Store Member Info"
+            },
+            {
+              "member": "1",
+              "varName": "",
+              "info": "2",
+              "storage": "1",
+              "varName2": "username",
+              "name": "Store Member Info"
+            },
+            {
+              "member": "1",
+              "varName": "",
+              "info": "20",
+              "storage": "1",
+              "varName2": "tag",
+              "name": "Store Member Info"
+            },
+            {
+              "member": "1",
+              "varName": "",
+              "info": "1",
+              "storage": "1",
+              "varName2": "id",
+              "name": "Store Member Info"
+            },
+            {
+              "member": "5",
+              "varName2": "User",
+              "role": "6",
+              "varName": "Role",
+              "reason": "Command Requested By ${tempVars(\"username\")}#${tempVars(\"tag\")} (ID: ${tempVars(\"id\")})",
+              "name": "Remove Member Role"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "Remove Role",
+                  "url": "",
+                  "color": "RED",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "${slashParams(\"Role\")} successfully Removed From ${slashParams(\"User\")}",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "Command requested by ${tempVars(\"displayname\")}",
+                  "footerIconUrl": "${tempVars(\"avatar\")}"
+                }
+              ],
+              "reply": true,
+              "ephemeral": false,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            }
+          ],
+          "iffalseActions": [
+            {
+              "member": "1",
+              "varName": "",
+              "info": "3",
+              "storage": "1",
+              "varName2": "displayname",
+              "name": "Store Member Info"
+            },
+            {
+              "member": "1",
+              "varName": "",
+              "info": "16",
+              "storage": "1",
+              "varName2": "avatar",
+              "name": "Store Member Info"
+            },
+            {
+              "channel": "0",
+              "varName": "",
+              "message": "",
+              "buttons": [],
+              "selectMenus": [],
+              "attachments": [],
+              "embeds": [
+                {
+                  "title": "This user does not have this role.",
+                  "url": "",
+                  "color": "RED",
+                  "timestamp": "false",
+                  "imageUrl": "",
+                  "thumbUrl": "",
+                  "description": "",
+                  "fields": [],
+                  "author": "",
+                  "authorUrl": "",
+                  "authorIcon": "",
+                  "footerText": "Command request by ${tempVars(\"displayname\")}",
+                  "footerIconUrl": "${tempVars(\"avatar\")}"
+                }
+              ],
+              "reply": true,
+              "ephemeral": false,
+              "tts": false,
+              "overwrite": false,
+              "dontSend": false,
+              "editMessage": "0",
+              "editMessageVarName": "",
+              "storage": "0",
+              "varName2": "",
+              "name": "Send Message"
+            }
+          ]
+        },
+        "name": "Check If Member has Role"
+      },
+      {
+        "name": "End Action Sequence"
+      },
+      {
+        "anchorName": "Not on List",
+        "name": "Action Anchor"
+      },
+      {
+        "channel": "0",
+        "varName": "",
+        "message": "That role isn't on the list",
+        "buttons": [],
+        "selectMenus": [],
+        "attachments": [],
+        "embeds": [],
+        "reply": true,
+        "ephemeral": false,
+        "tts": false,
+        "overwrite": false,
+        "dontSend": false,
+        "editMessage": "0",
+        "editMessageVarName": "",
+        "storage": "0",
+        "varName2": "",
+        "name": "Send Message"
+      },
+      {
+        "name": "End Action Sequence"
+      }
+    ],
+    "comType": "4",
+    "description": "This Command Assigns Roles to a User",
+    "parameters": [
+      {
+        "name": "User",
+        "description": "Select a user",
+        "type": "USER",
+        "required": true,
+        "choices": null
+      },
+      {
+        "name": "Role",
+        "description": "Select a Role",
+        "type": "ROLE",
+        "required": true,
+        "choices": null
+      }
+    ]
+  }

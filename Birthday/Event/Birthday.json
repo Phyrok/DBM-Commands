@@ -1,0 +1,122 @@
+{
+    "name": "Birthday",
+    "temp": "0 8 * * *",
+    "event-type": "Cron Scheduler",
+    "_id": "rcQvM",
+    "actions": [
+      {
+        "list": "0",
+        "varName": "",
+        "tempVarName": "Member",
+        "type": "true",
+        "actions": [
+          {
+            "member": "2",
+            "varName": "Member",
+            "role": "100",
+            "varName2": "Birthday",
+            "branch": {
+              "iftrue": "0",
+              "iffalse": "1"
+            },
+            "name": "Check If Member has Role"
+          },
+          {
+            "member": "2",
+            "varName2": "Member",
+            "role": "100",
+            "varName": "Birthday",
+            "reason": "",
+            "name": "Remove Member Role"
+          }
+        ],
+        "name": "Loop Through List"
+      },
+      {
+        "list": "0",
+        "varName": "",
+        "tempVarName": "Member",
+        "type": "true",
+        "actions": [
+          {
+            "member": "2",
+            "varName": "Member",
+            "info": "1",
+            "storage": "1",
+            "varName2": "ID",
+            "name": "Store Member Info"
+          },
+          {
+            "member": "2",
+            "varName": "Member",
+            "info": "2",
+            "storage": "1",
+            "varName2": "Username",
+            "name": "Store Member Info"
+          },
+          {
+            "filename": "resources/birthday/${tempVars(\"ID\")}.log",
+            "iftrue": "0",
+            "iftrueVal": "",
+            "iffalse": "1",
+            "iffalseVal": "",
+            "name": "Check if File Exists"
+          },
+          {
+            "filePath": "resources/birthday/${tempVars(\"ID\")}.log",
+            "info": "File Content",
+            "storage": "1",
+            "varName": "Birthday Date",
+            "name": "Store File Info"
+          },
+          {
+            "behavior": "0",
+            "interpretation": "0",
+            "code": "function isToday(dateString) {\n  const today = new Date(); // create a new Date object for today's date\n  const [day, month] = dateString.split(\"-\"); // split the input string into day, month, and year components\n  const inputDate = new Date(today.getFullYear(), month - 1, day); // create a new Date object for the input date with the same year as today\n  return inputDate.toDateString() === today.toDateString(); // compare the two date objects without considering the time\n}\n\nActions.storeValue(isToday(tempVars(\"Birthday Date\")), 1, \"T/F\", cache);",
+            "storage": "0",
+            "varName": "",
+            "name": "Run Script"
+          },
+          {
+            "storage": "1",
+            "varName": "T/F",
+            "comparison": "1",
+            "value": "true",
+            "branch": {
+              "iftrue": "0",
+              "iffalse": "1"
+            },
+            "name": "Check Variable"
+          },
+          {
+            "channel": "103",
+            "varName": "1066272013221642260",
+            "message": "It's ${tempVars(\"Member\")} Birthday today!\nGo wish him/her a Happy Birthday!",
+            "buttons": [],
+            "selectMenus": [],
+            "attachments": [],
+            "embeds": [],
+            "reply": true,
+            "ephemeral": false,
+            "tts": false,
+            "overwrite": false,
+            "dontSend": false,
+            "editMessage": "0",
+            "editMessageVarName": "",
+            "storage": "0",
+            "varName2": "",
+            "name": "Send Message"
+          },
+          {
+            "member": "2",
+            "varName2": "Member",
+            "role": "100",
+            "varName": "Birthday",
+            "reason": "",
+            "name": "Add Member Role"
+          }
+        ],
+        "name": "Loop Through List"
+      }
+    ]
+  }

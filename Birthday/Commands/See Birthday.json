@@ -1,0 +1,102 @@
+{
+    "name": "See Birthday",
+    "permissions": "NONE",
+    "permissions2": "NONE",
+    "restriction": "1",
+    "_id": "Clhxc",
+    "actions": [
+      {
+        "member": "5",
+        "varName": "User",
+        "info": "1",
+        "storage": "1",
+        "varName2": "ID",
+        "name": "Store Member Info"
+      },
+      {
+        "filename": "resources/birthday/${tempVars(\"ID\")}.log",
+        "iftrue": "4",
+        "iftrueVal": "True",
+        "iffalse": "4",
+        "iffalseVal": "False",
+        "name": "Check if File Exists"
+      },
+      {
+        "name": "End Action Sequence"
+      },
+      {
+        "anchorName": "False",
+        "name": "Action Anchor"
+      },
+      {
+        "channel": "0",
+        "varName": "",
+        "message": "This person hasn't set their birthday yet.",
+        "buttons": [],
+        "selectMenus": [],
+        "attachments": [],
+        "embeds": [],
+        "reply": true,
+        "ephemeral": false,
+        "tts": false,
+        "overwrite": false,
+        "dontSend": false,
+        "editMessage": "0",
+        "editMessageVarName": "",
+        "storage": "0",
+        "varName2": "",
+        "name": "Send Message"
+      },
+      {
+        "name": "End Action Sequence"
+      },
+      {
+        "anchorName": "True",
+        "name": "Action Anchor"
+      },
+      {
+        "filePath": "resources/birthday/${tempVars(\"ID\")}.log",
+        "info": "File Content",
+        "storage": "1",
+        "varName": "Birthday",
+        "name": "Store File Info"
+      },
+      {
+        "member": "5",
+        "varName": "User",
+        "info": "2",
+        "storage": "1",
+        "varName2": "Username",
+        "name": "Store Member Info"
+      },
+      {
+        "channel": "0",
+        "varName": "",
+        "message": "${tempVars(\"Username\")}: ${tempVars(\"Birthday\")}",
+        "buttons": [],
+        "selectMenus": [],
+        "attachments": [],
+        "embeds": [],
+        "reply": true,
+        "ephemeral": false,
+        "tts": false,
+        "overwrite": false,
+        "dontSend": false,
+        "editMessage": "0",
+        "editMessageVarName": "",
+        "storage": "0",
+        "varName2": "",
+        "name": "Send Message"
+      }
+    ],
+    "comType": "4",
+    "parameters": [
+      {
+        "name": "User",
+        "description": "",
+        "type": "USER",
+        "required": true,
+        "choices": null
+      }
+    ]
+  }

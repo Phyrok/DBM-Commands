@@ -1,0 +1,70 @@
+{
+    "name": "Assignableroles Remove",
+    "permissions": "NONE",
+    "permissions2": "NONE",
+    "restriction": "1",
+    "_id": "ektMQ",
+    "actions": [
+      {
+        "role": "6",
+        "varName": "Role",
+        "info": "2",
+        "storage": "1",
+        "varName2": "Role Name",
+        "name": "Store Role Info"
+      },
+      {
+        "filePath": "resources/assign_roles.txt",
+        "info": "File Content",
+        "storage": "1",
+        "varName": "Roles List",
+        "name": "Store File Info"
+      },
+      {
+        "text": "${tempVars(\"Roles List\")}",
+        "text2": "+ ${tempVars(\"Role Name\")}",
+        "text3": "",
+        "info": "0",
+        "storage": "1",
+        "varName": "Roles List",
+        "name": "Replace Text"
+      },
+      {
+        "behavior": "0",
+        "interpretation": "0",
+        "code": "let text = tempVars(\"Roles List\");\n\n// Use a regular expression to match empty lines\nlet regex = /\\n\\s*\\n/g;\nlet result = text.replace(regex, \"\\n\");\n\nActions.storeValue(result, 1, \"Roles List\", cache);",
+        "storage": "0",
+        "varName": "",
+        "name": "Run Script"
+      },
+      {
+        "channel": "0",
+        "varName": "",
+        "message": "Removed `${tempVars(\"Role Name\")}` from Asssignable Roles\n\n**Current List**\n```diff\n${tempVars(\"Roles List\")}\n```",
+        "buttons": [],
+        "selectMenus": [],
+        "attachments": [],
+        "embeds": [],
+        "reply": true,
+        "ephemeral": false,
+        "tts": false,
+        "overwrite": false,
+        "dontSend": false,
+        "editMessage": "0",
+        "editMessageVarName": "",
+        "storage": "0",
+        "varName2": "",
+        "name": "Send Message"
+      }
+    ],
+    "comType": "4",
+    "parameters": [
+      {
+        "name": "Role",
+        "description": "",
+        "type": "ROLE",
+        "required": true,
+        "choices": null
+      }
+    ]
+  }
