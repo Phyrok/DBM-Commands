@@ -8,13 +8,14 @@ These are some commands I created for DBM <sub>[Discord Bot Maker](https://githu
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
 <details><summary>Assignable Roles</summary>
-> Slash Commands
+*Commands description Comming soon*
 
 ```diff
 5 Commands
 ```
 </details>
 <details><summary>Birthday</summary>
+*Commands description Comming soon*
 
 ```diff
 3 Commands
@@ -22,6 +23,7 @@ These are some commands I created for DBM <sub>[Discord Bot Maker](https://githu
 ```
 </details><details>
 <summary>Counting</summary>
+*Commands description Comming soon*
 
 ```diff
 2 Commands
