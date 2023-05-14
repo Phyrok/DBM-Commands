@@ -7,30 +7,29 @@ These are some commands I created for DBM <sub>[Discord Bot Maker](https://githu
 ![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
-<details><summary>Assignable Roles</summary>
+<details>
+ <summary>Assignable Roles</summary>
  
- *Commands description Comming soon*
-
-```diff
-5 Commands
-```
+ *Commands description comming soon*
+ | Commands | Events |
+ | :---:    | :---:  |
+ | 5        | 0      |
 </details>
-<details><summary>Birthday</summary>
+<details>
+ <summary>Birthday</summary>
  
- *Commands description Comming soon*
-
-```diff
-3 Commands
-1 Event
-```
-</details><details>
+ *Commands description comming soon*
+ | Commands | Events |
+ | :---:    | :---:  |
+ | 3        | 1      |
+</details>
+<details>
  <summary>Counting</summary>
  
-*Commands description Comming soon*
-
-```diff
-2 Commands
-```
+ *Commands description comming soon*
+ | Commands | Events |
+ | :---:    | :---:  |
+ | 2        | 0      |
 </details>
 
 ### Custom Command / Event
