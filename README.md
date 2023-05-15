@@ -2,10 +2,7 @@
 
 These are some commands I created for DBM <sub>[Discord Bot Maker](https://github.com/dbm-network/mods)</sub>
 
-*Note that some of these commands may require modules* <br>
-![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
-![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
-![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
+**These codes are meant for personal use and not to be shared without the mention or agreement of the author**
 
 <details>
  <summary>Assignable Roles</summary>
@@ -31,6 +28,11 @@ These are some commands I created for DBM <sub>[Discord Bot Maker](https://githu
  | :---:    | :---:  |
  | 2        | 0      |
 </details>
+
+*Note that some of these commands may require modules* <br>
+![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)
+![NodeJS](https://img.shields.io/badge/node.js-6DA55F?style=for-the-badge&logo=node.js&logoColor=white)
+![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E)
 
 ### Custom Command / Event
 Contact me on Discord for any custom Command or Event for DBM <sub>[Discord Bot Maker](https://github.com/dbm-network/mods)</sub>
