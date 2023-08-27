@@ -1,0 +1,171 @@
+{
+  "name": "Global Kick",
+  "permissions": "NONE",
+  "permissions2": "NONE",
+  "restriction": "4",
+  "_id": "tidCz",
+  "actions": [
+    {
+      "member": "1",
+      "varName": "",
+      "role": "100",
+      "varName2": "Role Name goes here",
+      "branch": {
+        "iftrue": "2",
+        "iffalse": "0",
+        "iftrueVal": "4"
+      },
+      "name": "Check If Member has Role"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "You dont have perms.",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    },
+    {
+      "user": "5",
+      "varName": "User",
+      "info": "2",
+      "storage": "1",
+      "varName2": "User Username",
+      "name": "Store User Info"
+    },
+    {
+      "user": "5",
+      "varName": "User",
+      "info": "9",
+      "storage": "1",
+      "varName2": "User Discriminator",
+      "name": "Store User Info"
+    },
+    {
+      "user": "5",
+      "varName": "User",
+      "info": "1",
+      "storage": "1",
+      "varName2": "User ID",
+      "name": "Store User Info"
+    },
+    {
+      "member": "5",
+      "varName": "User",
+      "info": "2",
+      "storage": "1",
+      "varName2": "Username",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "5",
+      "varName": "User",
+      "info": "20",
+      "storage": "1",
+      "varName2": "Discriminator",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "5",
+      "varName": "User",
+      "info": "1",
+      "storage": "1",
+      "varName2": "ID",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "User",
+      "info": "2",
+      "storage": "1",
+      "varName2": "Command Username",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "User",
+      "info": "20",
+      "storage": "1",
+      "varName2": "Command Discriminator",
+      "name": "Store Member Info"
+    },
+    {
+      "member": "1",
+      "varName": "User",
+      "info": "1",
+      "storage": "1",
+      "varName2": "Command ID",
+      "name": "Store Member Info"
+    },
+    {
+      "server": "0",
+      "varName": "",
+      "info": "2",
+      "storage": "1",
+      "varName2": "Server Name",
+      "name": "Store Server Info"
+    },
+    {
+      "behavior": "0",
+      "interpretation": "0",
+      "code": "const Discord = require('discord.js');\n\nconst username = tempVars(\"Username\") || tempVars(\"User Username\");\nconst discriminator = tempVars(\"Discriminator\") || tempVars(\"User Discriminator\");\n\nconst User = username+\"#\"+discriminator;\nconst UserID = tempVars(\"ID\") || tempVars(\"User ID\");\nconst Author = tempVars(\"Command Username\")+\"#\"+tempVars(\"Command Discriminator\");\nconst AuthorID = tempVars(\"Command ID\");\nconst ServerName = tempVars(\"Server Name\");\nconst ReasonBan = slashParams(\"Reason\") || \"No reason provided\";\n\nconst Text = (User+\" (ID \"+UserID+\") has been KICKED from \"+ServerName+\" and our Network API | Reason: Globally kicked by \"+Author+\" (ID \"+AuthorID+\") | Reason of KICK: \"+ReasonBan);\n\nfor (const guild of client.guilds.cache.values()){\n  try\n  {\n    guild.members.kick(slashParams(\"User\"), reason = Text )\n    console.log(\"GlobalKicked\");\n  } catch(error)\n  {\n    console.log(\"Why are you looking at my code?\")\n  }\n}",
+      "storage": "0",
+      "varName": "",
+      "name": "Run Script"
+    },
+    {
+      "channel": "0",
+      "varName": "",
+      "message": "Global Kick Complete.",
+      "buttons": [],
+      "selectMenus": [],
+      "attachments": [],
+      "embeds": [],
+      "reply": true,
+      "ephemeral": false,
+      "tts": false,
+      "overwrite": false,
+      "dontSend": false,
+      "editMessage": "0",
+      "editMessageVarName": "",
+      "storage": "0",
+      "varName2": "",
+      "name": "Send Message"
+    },
+    {
+      "name": "End Action Sequence"
+    }
+  ],
+  "comType": "0",
+  "parameters": [
+    {
+      "name": "User",
+      "description": "Select a user",
+      "type": "USER",
+      "required": true,
+      "choices": null
+    },
+    {
+      "name": "Reason",
+      "description": "Provide a reason",
+      "type": "STRING",
+      "required": false,
+      "choices": null
+    }
+  ],
+  "description": "This command kicks a member from multiple guilds"
+}
